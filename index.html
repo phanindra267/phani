@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phanindra | Full Stack Developer & AI Specialist</title>
-    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Devicon for technology icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <!-- Typed.js and Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        /* (Your existing style block – unchanged, so omitted here for brevity) */
         :root {
             --primary: #0ea5e9;
             --primary-dark: #0369a1;
@@ -409,58 +404,381 @@
             font-size: 1.25rem;
         }
         
-        /* Skills Section (Updated) */
+        /* Skills Section */
         #skills {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
         }
         
-        .skills-category {
-            margin-bottom: 2.5rem;
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        .skills-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            display: inline-block;
-            padding-bottom: 0.25rem;
-        }
-        
-        .skill-icons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .skill-category {
             background: var(--card-bg);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid var(--glass-effect);
             backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-effect);
             transition: var(--transition);
         }
         
-        .skill-item:hover {
-            transform: translateY(-3px);
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: var(--glass-effect);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            overflow: hidden;
             box-shadow: var(--shadow);
+            border: 1px solid var(--glass-effect);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Experience Section */
+        #experience {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+        }
+        
+        .timeline-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-effect);
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-effect);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-effect);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--glass-effect);
+            border: 1px solid var(--glass-effect);
+            border-radius: 0.5rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
             border-color: var(--primary);
         }
         
-        .skill-item i,
-        .skill-item img {
-            font-size: 1.25rem;
-            width: 1.25rem;
-            height: 1.25rem;
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
         
-        /* Projects, Experience, etc. (keep your existing styles) */
-        /* ... (all your other styles remain exactly as before) ... */
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: var(--shadow);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
@@ -552,8 +870,7 @@
     <header id="header">
         <nav class="container">
             <a href="#" class="logo">
-                <!-- Fixed: empty img replaced with text -->
-                <span>Phanindra</span>
+                <span><img src=" "</span>
             </a>
             
             <div class="nav-links">
@@ -612,629 +929,1201 @@
     </section> 
     
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
+   
+
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">About Me</h2>
+        
+        <div class="about-content">
+            <div class="about-image fade-in">
+                <img src="https://imgcdn.stablediffusionweb.com/2024/10/6/fdb52901-3177-4f88-aa73-606a53b41e37.jpg" alt="Phanindra Reddy">
+            </div>
             
-            <div class="about-content">
-                <div class="about-image fade-in">
-                    <img src="https://imgcdn.stablediffusionweb.com/2024/10/6/fdb52901-3177-4f88-aa73-606a53b41e37.jpg" alt="Phanindra Reddy">
-                </div>
+            <div class="about-text fade-in" style="transition-delay: 0.2s">
+                <h3>Full Stack Developer & AI Enthusiast</h3>
+                <p>
+                    I'm a motivated Computer Science student at Lovely Professional University (LPU), currently moving into my 3rd year. 
+                    I have strong programming skills in C, C++, Java, and Python, along with hands-on experience in front-end 
+                    development using HTML, CSS, JavaScript, and jQuery.
+                </p>
+                <p>
+                    On the back-end, I am proficient in PHP and procedural SQL. I enjoy solving problems and working on full-stack 
+                    projects to sharpen my technical abilities. I am a fast learner, quick to adapt to new technologies, and eager 
+                    to contribute effectively in any project or team environment.
+                </p>
                 
-                <div class="about-text fade-in" style="transition-delay: 0.2s">
-                    <h3>Full Stack Developer & AI Enthusiast</h3>
-                    <p>
-                        I'm a motivated Computer Science student at Lovely Professional University (LPU), currently moving into my 3rd year. 
-                        I have strong programming skills in C, C++, Java, and Python, along with hands-on experience in front-end 
-                        development using HTML, CSS, JavaScript, and jQuery.
-                    </p>
-                    <p>
-                        On the back-end, I am proficient in PHP and procedural SQL. I enjoy solving problems and working on full-stack 
-                        projects to sharpen my technical abilities. I am a fast learner, quick to adapt to new technologies, and eager 
-                        to contribute effectively in any project or team environment.
-                    </p>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-user-graduate"></i>
-                            <div>
-                                <h4>Education</h4>
-                                <p>B.Tech in Computer Science</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>kakumaniphanindra@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+91 8179359425</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Punjab, India</p>
-                            </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>
+                            <h4>Education</h4>
+                            <p>B.Tech in Computer Science</p>
                         </div>
                     </div>
-                    
-                    <a href="https://drive.google.com/uc?export=download&id=1IFhb0pOId140jjopZwSV_cbSbv0Ak6Bg" class="btn btn-primary" style="margin-top: 1.5rem" download="Phanindra_Reddy_CV.pdf">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kakumaniphanindra@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 8179359425</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Punjab, India</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <a href="https://drive.google.com/uc?export=download&id=1IFhb0pOId140jjopZwSV_cbSbv0Ak6Bg" class="btn btn-primary" style="margin-top: 1.5rem" download="Phanindra_Reddy_CV.pdf">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills Section (Updated) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.querySelector('.btn.btn-primary');
+    
+    // Optional: Add click tracking
+    downloadBtn.addEventListener('click', function(e) {
+        // You can add analytics tracking here
+        console.log('CV download initiated');
+        
+        // Optional: Force download after a small delay
+        setTimeout(() => {
+            // This is redundant since we already have the download attribute
+            // but can be useful for tracking
+            window.location.href = downloadBtn.href;
+        }, 100);
+    });
+});
+</script>
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title fade-in">My Skills</h2>
             
-            <!-- Languages -->
-            <div class="skills-category fade-in">
-                <h3>Languages</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
-                    <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-                    <div class="skill-item"><i class="devicon-go-plain colored"></i><span>Go</span></div>
-                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-                    <div class="skill-item"><i class="devicon-c-plain colored"></i><span>C</span></div>
-                    <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
-                    <div class="skill-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
-                    <div class="skill-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
-                    <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
-            </div>
-            
-            <!-- CS Fundamentals -->
-            <div class="skills-category fade-in">
-                <h3>CS Fundamentals</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="fas fa-code"></i><span>DSA</span></div>
-                    <div class="skill-item"><i class="fas fa-server"></i><span>Operating Systems</span></div>
-                    <div class="skill-item"><i class="fas fa-database"></i><span>DBMS</span></div>
-                    <div class="skill-item"><i class="fas fa-network-wired"></i><span>Networking</span></div>
-                    <div class="skill-item"><i class="fas fa-object-group"></i><span>OOP</span></div>
-                    <div class="skill-item"><i class="fas fa-clock"></i><span>Time & Space Complexity</span></div>
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>Algorithmic Problem-Solving</span></div>
+                
+                <div class="skill-category fade-in" style="transition-delay: 0.2s">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                           </div>
+                       </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>PHP</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Frameworks & Libraries -->
-            <div class="skills-category fade-in">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
-                    <div class="skill-item"><i class="devicon-express-original colored"></i><span>Express.js</span></div>
-                    <div class="skill-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
-                    <div class="skill-item"><i class="devicon-django-plain colored"></i><span>Django</span></div>
-                    <div class="skill-item"><i class="devicon-flask-original colored"></i><span>Flask</span></div>
-                    <div class="skill-item"><i class="devicon-python-plain colored"></i><span>FastAPI</span></div>
+                
+                <div class="skill-category fade-in" style="transition-delay: 0.4s">
+                    <h3><i class="fas fa-brain"></i> AI/ML</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>TensorFlow</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>PyTorch</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>OpenCV</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Databases & Cloud -->
-            <div class="skills-category fade-in">
-                <h3>Databases & Cloud</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
-                    <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
-                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
-                    <div class="skill-item"><i class="devicon-amazonwebservices-plain colored"></i><span>AWS</span></div>
-                    <div class="skill-item"><i class="devicon-redis-plain colored"></i><span>Redis</span></div>
-                </div>
-            </div>
-            
-            <!-- Tools & Platforms -->
-            <div class="skills-category fade-in">
-                <h3>Tools & Platforms</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
-                    <div class="skill-item"><i class="devicon-github-plain colored"></i><span>GitHub</span></div>
-                    <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
-                    <div class="skill-item"><i class="devicon-kubernetes-plain colored"></i><span>Kubernetes</span></div>
-                    <div class="skill-item"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" /><span>Postman</span></div>
-                    <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
-                    <div class="skill-item"><i class="devicon-pycharm-plain colored"></i><span>PyCharm</span></div>
-                    <div class="skill-item"><i class="devicon-jira-plain colored"></i><span>Jira</span></div>
-                </div>
-            </div>
-            
-            <!-- Development Practices -->
-            <div class="skills-category fade-in">
-                <h3>Development Practices</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="fas fa-network-wired"></i><span>RESTful APIs</span></div>
-                    <div class="skill-item"><i class="fas fa-server"></i><span>HTTP Lifecycle</span></div>
-                    <div class="skill-item"><i class="fas fa-lock"></i><span>Auth & Authorization</span></div>
-                    <div class="skill-item"><i class="fas fa-bug"></i><span>Debugging</span></div>
-                    <div class="skill-item"><i class="fas fa-vial"></i><span>Unit & Integration Testing</span></div>
-                    <div class="skill-item"><i class="fas fa-code-branch"></i><span>Code Reviews</span></div>
-                    <div class="skill-item"><i class="fas fa-cogs"></i><span>CI/CD</span></div>
-                    <div class="skill-item"><i class="fas fa-project-diagram"></i><span>Microservices</span></div>
-                </div>
-            </div>
-            
-            <!-- Soft Skills -->
-            <div class="skills-category fade-in">
-                <h3>Soft Skills</h3>
-                <div class="skill-icons">
-                    <div class="skill-item"><i class="fas fa-lightbulb"></i><span>Problem-Solving</span></div>
-                    <div class="skill-item"><i class="fas fa-comments"></i><span>Communication</span></div>
-                    <div class="skill-item"><i class="fas fa-users"></i><span>Teamwork</span></div>
-                    <div class="skill-item"><i class="fas fa-handshake"></i><span>Ownership</span></div>
-                    <div class="skill-item"><i class="fas fa-bolt"></i><span>Adaptability</span></div>
-                    <div class="skill-item"><i class="fas fa-brain"></i><span>Rapid Learning</span></div>
+                
+                <div class="skill-category fade-in" style="transition-delay: 0.6s">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MySQL</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MongoDB</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">My Projects</h2>
-            
-            <div class="projects-grid">
-                <!-- Personal Productivity Dashboard -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Productivity Dashboard">
-                    </div>
-                    <div class="project-info">
-                        <h3>Personal Productivity Dashboard</h3>
-                        <p>A comprehensive web dashboard for time-blocking, journaling, and fitness tracking with integrated data storage.</p>
-                        
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">Firebase</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
+    <!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">My Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Personal Productivity Dashboard -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Productivity Dashboard">
                 </div>
-                
-                <!-- Job Portal Application -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Job Portal">
+                <div class="project-info">
+                    <h3>Personal Productivity Dashboard</h3>
+                    <p>A comprehensive web dashboard for time-blocking, journaling, and fitness tracking with integrated data storage.</p>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">Firebase</span>
                     </div>
-                    <div class="project-info">
-                        <h3>Dynamic Job Tracker</h3>
-                        <p>Full-featured job application tracking system with analytics and application status management.</p>
-                        
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">Firebase</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="https://github.com/phanindra267/Dynamical-job-tracker-.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tomato Leaf Disease Classification -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://storage.googleapis.com/kaggle-datasets-images/2577191/4391208/7b349d99ee60f0012dcdcdfc855644c9/dataset-cover.jpg?t=2022-11-02-08-18-51" alt="Tomato Disease Classification">
-                    </div>
-                    <div class="project-info">
-                        <h3>Tomato Leaf Disease Classification</h3>
-                        <p>CNN-based system for classifying tomato leaf diseases with early detection capabilities to prevent crop loss.</p>
-                        
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">TensorFlow</span>
-                            <span class="project-tag">CNN</span>
-                            <span class="project-tag">Computer Vision</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="https://colab.research.google.com/drive/1PFL2CLWcPHKMEA7_zh_7oCPTWQeQEuKY" target="_blank" class="project-link">
-                                <i class="fas fa-code"></i> Colab Notebook
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Saline Monitoring System -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Saline Monitoring">
-                    </div>
-                    <div class="project-info">
-                        <h3>Saline Monitoring System</h3>
-                        <p>Healthcare system for monitoring saline levels to improve patient care accuracy and alert medical staff.</p>
-                        
-                        <div class="project-tags">
-                            <span class="project-tag">IoT</span>
-                            <span class="project-tag">Embedded Systems</span>
-                            <span class="project-tag">C++</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="https://drive.google.com/file/d/1qD6EoHR8nrjXmv5eAL5iU8S5O_nOB3xN/view?usp=sharing" target="_blank" class="project-link">
-                                <i class="fas fa-file-pdf"></i> Project Documentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Technical Blog Site -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Technical Blog">
-                    </div>
-                    <div class="project-info">
-                        <h3>Technical Blog Site</h3>
-                        <p>A platform for sharing technical content with user authentication, commenting, and content management.</p>
-                        
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
                     </div>
                 </div>
             </div>
+            
+            <!-- Job Portal Application -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Job Portal">
+                </div>
+                <div class="project-info">
+                    <h3>Dynamic Job Tracker</h3>
+                    <p>Full-featured job application tracking system with analytics and application status management.</p>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">Firebase</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/phanindra267/Dynamical-job-tracker-.git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tomato Leaf Disease Classification -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://storage.googleapis.com/kaggle-datasets-images/2577191/4391208/7b349d99ee60f0012dcdcdfc855644c9/dataset-cover.jpg?t=2022-11-02-08-18-51" alt="Tomato Disease Classification">
+                </div>
+                <div class="project-info">
+                    <h3>Tomato Leaf Disease Classification</h3>
+                    <p>CNN-based system for classifying tomato leaf diseases with early detection capabilities to prevent crop loss.</p>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">TensorFlow</span>
+                        <span class="project-tag">CNN</span>
+                        <span class="project-tag">Computer Vision</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://colab.research.google.com/drive/1PFL2CLWcPHKMEA7_zh_7oCPTWQeQEuKY" target="_blank" class="project-link">
+                            <i class="fas fa-code"></i> Colab Notebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Saline Monitoring System -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Saline Monitoring">
+                </div>
+                <div class="project-info">
+                    <h3>Saline Monitoring System</h3>
+                    <p>Healthcare system for monitoring saline levels to improve patient care accuracy and alert medical staff.</p>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">IoT</span>
+                        <span class="project-tag">Embedded Systems</span>
+                        <span class="project-tag">C++</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1qD6EoHR8nrjXmv5eAL5iU8S5O_nOB3xN/view?usp=sharing" target="_blank" class="project-link">
+                            <i class="fas fa-file-pdf"></i> Project Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Blog Site -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Technical Blog">
+                </div>
+                <div class="project-info">
+                    <h3>Technical Blog Site</h3>
+                    <p>A platform for sharing technical content with user authentication, commenting, and content management.</p>
+                    
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">PHP</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hotel Management System -->
+            
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: #2d3748;
+}
+
+.project-info p {
+    margin: 0 0 1.5rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4299e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: #2b6cb0;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+</style>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="experience-container">
-            <h2 class="experience-title">My Experience</h2>
+ 
+<!-- Experience Section -->
+<section id="experience" class="experience-section">
+    <div class="experience-container">
+        <h2 class="experience-title">My Experience</h2>
+        
+        <div class="experience-timeline">
+            <!-- Avishkaran Technologies Experience -->
+            <div class="experience-item">
+                <div class="experience-dot"></div>
+                <div class="experience-card">
+                    <div class="experience-date">Jun 2023 - Nov 2023</div>
+                    <h3 class="experience-position">Key Operator Intern</h3>
+                    <p class="experience-company">Avishkaran Technologies, Hyderabad</p>
+                    <ul class="experience-details">
+                        <li>Supported backend operations including technical documentation and system maintenance</li>
+                        <li>Gained hands-on experience in software-hardware integration</li>
+                        <li>Observed and documented industrial workflow processes</li>
+                        <li>Troubleshot technical issues in production environments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Base Styles */
+.experience-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background-color: #f8fafc;
+}
+
+.experience-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.experience-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Timeline Styles */
+.experience-timeline {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 20px; /* Space for the timeline */
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: #cbd5e1;
+    z-index: 1;
+}
+
+.experience-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
+    padding-left: 30px; /* Space between line and card */
+}
+
+.experience-dot {
+    position: absolute;
+    top: 20px;
+    left: -8px; /* Half of dot width to center on line */
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 4px solid #bfdbfe;
+    z-index: 2;
+}
+
+.experience-card {
+    width: 100%;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.experience-date {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-position {
+    margin: 0 0 0.25rem;
+    font-size: 1.25rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.experience-company {
+    margin: 0 0 1rem;
+    color: #475569;
+    font-size: 1rem;
+}
+
+.experience-details {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+    color: #475569;
+}
+
+.experience-details li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 0 1.5rem;
+    }
+    
+    .experience-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .experience-timeline {
+        padding-left: 15px;
+    }
+    
+    .experience-item {
+        padding-left: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-container {
+        padding: 0 1rem;
+    }
+    
+    .experience-card {
+        padding: 1rem;
+    }
+    
+    .experience-title {
+        font-size: 1.75rem;
+    }
+    
+    .experience-position {
+        font-size: 1.1rem;
+    }
+}
+</style>
+<!-- Certifications Section -->
+<section id="certifications" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">My Certifications</h2>
+        
+        <div class="certifications-grid">
+            <!-- PyTorch for AI Certification -->
+            <div class="certification-card fade-in">
+                <div class="certification-image">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="AI Certification">
+                </div>
+                <div class="certification-info">
+                    <h3>PyTorch for AI Certification</h3>
+                    <p>Awarded by Infosys Springboard for successfully completing the course on October 30, 2024.</p>
+                    
+                    <div class="certification-tags">
+                        <span class="certification-tag">PyTorch</span>
+                        <span class="certification-tag">Deep Learning</span>
+                        <span class="certification-tag">AI</span>
+                    </div>
+                    
+                    <div class="certification-links">
+                        <a href="#" class="certification-link">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
             
-            <div class="experience-timeline">
-                <!-- Avishkaran Technologies Experience -->
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-card">
-                        <div class="experience-date">Jun 2023 - Nov 2023</div>
-                        <h3 class="experience-position">Key Operator Intern</h3>
-                        <p class="experience-company">Avishkaran Technologies, Hyderabad</p>
-                        <ul class="experience-details">
-                            <li>Supported backend operations including technical documentation and system maintenance</li>
-                            <li>Gained hands-on experience in software-hardware integration</li>
-                            <li>Observed and documented industrial workflow processes</li>
-                            <li>Troubleshot technical issues in production environments</li>
-                        </ul>
+            <!-- Add more certification cards here following the same structure -->
+        </div>
+    </div>
+</section>
+
+<style>
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.certification-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+}
+
+.certification-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.certification-info {
+    padding: 1.5rem;
+}
+
+.certification-info h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: #2d3748;
+}
+
+.certification-info p {
+    margin: 0 0 1.5rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.certification-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.certification-tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.certification-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.certification-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4299e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.certification-link:hover {
+    color: #2b6cb0;
+}
+</style>
+
+<!-- Participations Section -->
+<section id="participations" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">My Participations</h2>
+        
+        <div class="participations-grid">
+            <!-- CodeChef Gold Badge -->
+            <div class="participation-card fade-in">
+                <div class="participation-image">
+                    <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Competitive Programming">
+                </div>
+                <div class="participation-info">
+                    <h3>CodeChef – Gold Badge Holder</h3>
+                    <p>Achieved Gold Badge in Problem Solving through competitive programming contests and challenges.</p>
+                    
+                    <div class="participation-tags">
+                        <span class="participation-tag">Competitive Programming</span>
+                        <span class="participation-tag">Problem Solving</span>
+                        <span class="participation-tag">Algorithms</span>
+                    </div>
+                    
+                    <div class="participation-links">
+                        <a href="https://www.codechef.com/users/yourusername" target="_blank" class="participation-link">
+                            <i class="fas fa-external-link-alt"></i> View Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NSS Volunteer -->
+            <div class="participation-card fade-in">
+                <div class="participation-image">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="NSS Volunteer">
+                </div>
+                <div class="participation-info">
+                    <h3>NSS Volunteer – Udaan</h3>
+                    <p>Active member of LPU NSS Unit, participating in community service and social welfare activities.</p>
+                    
+                    <div class="participation-tags">
+                        <span class="participation-tag">Community Service</span>
+                        <span class="participation-tag">Social Work</span>
+                        <span class="participation-tag">Volunteering</span>
+                    </div>
+                    
+                    <div class="participation-links">
+                        <a href="#" class="participation-link">
+                            <i class="fas fa-images"></i> View Activities
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADISO Club Member -->
+            <div class="participation-card fade-in">
+                <div class="participation-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Club Participation">
+                </div>
+                <div class="participation-info">
+                    <h3>Member of ADISO Club</h3>
+                    <p>Participated in social seminar events and activities organized by the ADISO Club at LPU.</p>
+                    
+                    <div class="participation-tags">
+                        <span class="participation-tag">Social Seminars</span>
+                        <span class="participation-tag">Club Activities</span>
+                        <span class="participation-tag">Events</span>
+                    </div>
+                    
+                    <div class="participation-links">
+                        <a href="#" class="participation-link">
+                            <i class="fas fa-calendar-alt"></i> View Events
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">My Certifications</h2>
+    </div>
+</section>
+
+<style>
+.participations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.participation-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.participation-card:hover {
+    transform: translateY(-5px);
+}
+
+.participation-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.participation-info {
+    padding: 1.5rem;
+}
+
+.participation-info h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: #2d3748;
+}
+
+.participation-info p {
+    margin: 0 0 1.5rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.participation-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.participation-tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.participation-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.participation-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4299e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.participation-link:hover {
+    color: #2b6cb0;
+}
+</style>
+<!-- Interests & Activities Section -->
+<section id="interests" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Interests & Activities</h2>
+        
+        <div class="interests-grid">
+            <!-- Spiritual Practices -->
             
-            <div class="certifications-grid">
-                <!-- PyTorch for AI Certification -->
-                <div class="certification-card fade-in">
-                    <div class="certification-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="AI Certification">
+            
+            <!-- Fitness Routine -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>Fitness Routine</h3>
+                    <p>Consistent morning and evening workout regimen to maintain physical health and discipline.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Workout</span>
+                        <span class="interest-tag">Discipline</span>
                     </div>
-                    <div class="certification-info">
-                        <h3>PyTorch for AI Certification</h3>
-                        <p>Awarded by Infosys Springboard for successfully completing the course on October 30, 2024.</p>
-                        
-                        <div class="certification-tags">
-                            <span class="certification-tag">PyTorch</span>
-                            <span class="certification-tag">Deep Learning</span>
-                            <span class="certification-tag">AI</span>
-                        </div>
-                        
-                        <div class="certification-links">
-                            <a href="#" class="certification-link">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
+                </div>
+            </div>
+            
+            <!-- AI Exploration -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>AI Exploration</h3>
+                    <p>Exploring cutting-edge AI tools like ChatGPT, LangChain, and Java frameworks for technical growth.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">AI Tools</span>
+                        <span class="interest-tag">Tech Learning</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Time Management -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>Time Management</h3>
+                    <p>Practicing time-blocking, habit tracking, and journaling techniques for productivity optimization.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Productivity</span>
+                        <span class="interest-tag">Organization</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Puzzle Solving -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>Puzzle Solving</h3>
+                    <p>Enjoy solving Sudoku and logic puzzles as a member of Brainstorm Club for cognitive development.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Logic Games</span>
+                        <span class="interest-tag">Brainstorm Club</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Writing -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>Content Writing</h3>
+                    <p>Creating technical documentation and actively participating in peer discussion forums.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Writing</span>
+                        <span class="interest-tag">Documentation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Teamwork -->
+            <div class="interest-card fade-in">
+                <div class="interest-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="interest-info">
+                    <h3>Team Activities</h3>
+                    <p>Active participation in technical clubs and volunteering through NSS for community development.</p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Teamwork</span>
+                        <span class="interest-tag">Volunteering</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Participations Section -->
-    <section id="participations" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">My Participations</h2>
+    </div>
+</section>
+
+<style>
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.interest-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+}
+
+.interest-icon {
+    font-size: 1.5rem;
+    color: #4299e1;
+    padding: 0.75rem;
+    background: #ebf8ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.interest-info {
+    flex: 1;
+}
+
+.interest-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.interest-info p {
+    margin: 0 0 1rem;
+    color: #4a5568;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.interest-tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+}
+</style>
+<!-- Technologies Section -->
+<section id="technologies" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Technologies</h2>
+        
+        <div class="technologies-container">
+            <!-- Programming Languages -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-code tech-icon"></i>
+                    <h3>Programming Languages</h3>
+                </div>
+                <div class="tech-items">
+                    <span class="tech-item">C</span>
+                    <span class="tech-item">C++</span>
+                    <span class="tech-item">Java</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">PHP</span>
+                </div>
+            </div>
             
-            <div class="participations-grid">
-                <!-- CodeChef Gold Badge -->
-                <div class="participation-card fade-in">
-                    <div class="participation-image">
-                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Competitive Programming">
-                    </div>
-                    <div class="participation-info">
-                        <h3>CodeChef – Gold Badge Holder</h3>
-                        <p>Achieved Gold Badge in Problem Solving through competitive programming contests and challenges.</p>
-                        
-                        <div class="participation-tags">
-                            <span class="participation-tag">Competitive Programming</span>
-                            <span class="participation-tag">Problem Solving</span>
-                            <span class="participation-tag">Algorithms</span>
-                        </div>
-                        
-                        <div class="participation-links">
-                            <!-- Updated: replace "yourusername" with actual CodeChef username -->
-                            <a href="https://www.codechef.com/users/yourusername" target="_blank" class="participation-link">
-                                <i class="fas fa-external-link-alt"></i> View Profile
-                            </a>
-                        </div>
-                    </div>
+            <!-- Web Development -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-globe tech-icon"></i>
+                    <h3>Web Development</h3>
                 </div>
-                
-                <!-- NSS Volunteer -->
-                <div class="participation-card fade-in">
-                    <div class="participation-image">
-                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="NSS Volunteer">
-                    </div>
-                    <div class="participation-info">
-                        <h3>NSS Volunteer – Udaan</h3>
-                        <p>Active member of LPU NSS Unit, participating in community service and social welfare activities.</p>
-                        
-                        <div class="participation-tags">
-                            <span class="participation-tag">Community Service</span>
-                            <span class="participation-tag">Social Work</span>
-                            <span class="participation-tag">Volunteering</span>
-                        </div>
-                        
-                        <div class="participation-links">
-                            <a href="#" class="participation-link">
-                                <i class="fas fa-images"></i> View Activities
-                            </a>
-                        </div>
-                    </div>
+                <div class="tech-items">
+                    <span class="tech-item">HTML</span>
+                    <span class="tech-item">CSS</span>
+                    <span class="tech-item">JavaScript</span>
                 </div>
-                
-                <!-- ADISO Club Member -->
-                <div class="participation-card fade-in">
-                    <div class="participation-image">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Club Participation">
-                    </div>
-                    <div class="participation-info">
-                        <h3>Member of ADISO Club</h3>
-                        <p>Participated in social seminar events and activities organized by the ADISO Club at LPU.</p>
-                        
-                        <div class="participation-tags">
-                            <span class="participation-tag">Social Seminars</span>
-                            <span class="participation-tag">Club Activities</span>
-                            <span class="participation-tag">Events</span>
-                        </div>
-                        
-                        <div class="participation-links">
-                            <a href="#" class="participation-link">
-                                <i class="fas fa-calendar-alt"></i> View Events
-                            </a>
-                        </div>
-                    </div>
+            </div>
+            
+            <!-- Databases -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-database tech-icon"></i>
+                    <h3>Databases</h3>
+                </div>
+                <div class="tech-items">
+                    <span class="tech-item">SQLite</span>
+                    <span class="tech-item">MySQL</span>
+                </div>
+            </div>
+            
+            <!-- Frameworks & Libraries -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-cubes tech-icon"></i>
+                    <h3>Frameworks & Libraries</h3>
+                </div>
+                <div class="tech-items">
+                    <span class="tech-item">TensorFlow</span>
+                    <span class="tech-item">PyTorch</span>
+                </div>
+            </div>
+            
+            <!-- Tools & Platforms -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-tools tech-icon"></i>
+                    <h3>Tools & Platforms</h3>
+                </div>
+                <div class="tech-items">
+                    <span class="tech-item">Git</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">Linux</span>
+                    <span class="tech-item">VS Code</span>
+                </div>
+            </div>
+            
+            <!-- AI & Machine Learning -->
+            <div class="tech-category fade-in">
+                <div class="tech-header">
+                    <i class="fas fa-brain tech-icon"></i>
+                    <h3>AI & Machine Learning</h3>
+                </div>
+                <div class="tech-items">
+                    <span class="tech-item">Convolutional Neural Networks (CNN)</span>
+                    <span class="tech-item">Natural Language Processing (NLP)</span>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Interests & Activities Section -->
-    <section id="interests" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Interests & Activities</h2>
-            
-            <div class="interests-grid">
-                <!-- Fitness Routine -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>Fitness Routine</h3>
-                        <p>Consistent morning and evening workout regimen to maintain physical health and discipline.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Workout</span>
-                            <span class="interest-tag">Discipline</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AI Exploration -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>AI Exploration</h3>
-                        <p>Exploring cutting-edge AI tools like ChatGPT, LangChain, and Java frameworks for technical growth.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">AI Tools</span>
-                            <span class="interest-tag">Tech Learning</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Time Management -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>Time Management</h3>
-                        <p>Practicing time-blocking, habit tracking, and journaling techniques for productivity optimization.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Productivity</span>
-                            <span class="interest-tag">Organization</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Puzzle Solving -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>Puzzle Solving</h3>
-                        <p>Enjoy solving Sudoku and logic puzzles as a member of Brainstorm Club for cognitive development.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Logic Games</span>
-                            <span class="interest-tag">Brainstorm Club</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Content Writing -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>Content Writing</h3>
-                        <p>Creating technical documentation and actively participating in peer discussion forums.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Writing</span>
-                            <span class="interest-tag">Documentation</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Teamwork -->
-                <div class="interest-card fade-in">
-                    <div class="interest-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="interest-info">
-                        <h3>Team Activities</h3>
-                        <p>Active participation in technical clubs and volunteering through NSS for community development.</p>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Teamwork</span>
-                            <span class="interest-tag">Volunteering</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Technologies Section -->
-    <section id="technologies" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Technologies</h2>
-            
-            <div class="technologies-container">
-                <!-- Programming Languages -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-code tech-icon"></i>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">C</span>
-                        <span class="tech-item">C++</span>
-                        <span class="tech-item">Java</span>
-                        <span class="tech-item">JavaScript</span>
-                        <span class="tech-item">Python</span>
-                        <span class="tech-item">PHP</span>
-                    </div>
-                </div>
-                
-                <!-- Web Development -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-globe tech-icon"></i>
-                        <h3>Web Development</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">HTML</span>
-                        <span class="tech-item">CSS</span>
-                        <span class="tech-item">JavaScript</span>
-                    </div>
-                </div>
-                
-                <!-- Databases -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-database tech-icon"></i>
-                        <h3>Databases</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">SQLite</span>
-                        <span class="tech-item">MySQL</span>
-                    </div>
-                </div>
-                
-                <!-- Frameworks & Libraries -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-cubes tech-icon"></i>
-                        <h3>Frameworks & Libraries</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">TensorFlow</span>
-                        <span class="tech-item">PyTorch</span>
-                    </div>
-                </div>
-                
-                <!-- Tools & Platforms -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-tools tech-icon"></i>
-                        <h3>Tools & Platforms</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">Git</span>
-                        <span class="tech-item">Docker</span>
-                        <span class="tech-item">Linux</span>
-                        <span class="tech-item">VS Code</span>
-                    </div>
-                </div>
-                
-                <!-- AI & Machine Learning -->
-                <div class="tech-category fade-in">
-                    <div class="tech-header">
-                        <i class="fas fa-brain tech-icon"></i>
-                        <h3>AI & Machine Learning</h3>
-                    </div>
-                    <div class="tech-items">
-                        <span class="tech-item">Convolutional Neural Networks (CNN)</span>
-                        <span class="tech-item">Natural Language Processing (NLP)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+    </div>
+</section>
+
+<style>
+.technologies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tech-category {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.tech-category:hover {
+    transform: translateY(-5px);
+}
+
+.tech-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.tech-icon {
+    font-size: 1.5rem;
+    color: #4299e1;
+    padding: 0.75rem;
+    background: #ebf8ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #2d3748;
+}
+
+.tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tech-item {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.tech-item:hover {
+    background: #4299e1;
+    color: white;
+    transform: scale(1.05);
+}
+</style>
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
@@ -1259,6 +2148,8 @@
                         <h3>Location</h3>
                         <p>Punjab, India</p>
                     </div>
+                    
+                   
                 </div>
                 
                 <div class="contact-form fade-in" style="transition-delay: 0.2s">
@@ -1289,7 +2180,7 @@
         <div class="container">
             <div class="footer-content">
                 <a href="#" class="logo">
-                    <span>Phanindra</span>
+                    <span></span>
                 </a>
                 
                 <div class="footer-links">
@@ -1422,6 +2313,22 @@
             fadeObserver.observe(element);
         });
         
+        // Animate Skill Bars
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.getAttribute('data-width');
+                    entry.target.style.width = width;
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            skillsObserver.observe(bar);
+        });
+        
         // Back to Top Button
         const backToTop = document.querySelector('.back-to-top');
         window.addEventListener('scroll', () => {
@@ -1436,25 +2343,271 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
-    <!-- Download CV script (kept as is) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.querySelector('.btn.btn-primary');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    console.log('CV download initiated');
-                });
-            }
-        });
-    </script>
 </body>
-</html>
+</html> in this can you please update the withe replace skils the<!-- Full Skills Section -->
+<section id="skills" style="padding:50px 20px; background:#f9f9f9; text-align:center;">
+  <h2 style="font-size:2rem; margin-bottom:40px;">My Skills</h2>
+
+  <!-- Languages -->
+  <div class="skill-category">
+    <h3>Languages</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+      <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+      <div class="skill-item"><i class="devicon-go-plain colored"></i><span>Go</span></div>
+      <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+      <div class="skill-item"><i class="devicon-c-plain colored"></i><span>C</span></div>
+      <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+      <div class="skill-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+      <div class="skill-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+      <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div> <!-- Fixed SQL -->
+    </div>
+  </div>
+
+  <!-- CS Fundamentals -->
+  <div class="skill-category">
+    <h3>CS Fundamentals</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="fas fa-code"></i><span>DSA</span></div>
+      <div class="skill-item"><i class="fas fa-server"></i><span>Operating Systems</span></div>
+      <div class="skill-item"><i class="fas fa-database"></i><span>DBMS</span></div>
+      <div class="skill-item"><i class="fas fa-network-wired"></i><span>Networking</span></div>
+      <div class="skill-item"><i class="fas fa-object-group"></i><span>OOP</span></div>
+      <div class="skill-item"><i class="fas fa-clock"></i><span>Time & Space Complexity</span></div>
+      <div class="skill-item"><i class="fas fa-brain"></i><span>Algorithmic Problem-Solving</span></div>
+    </div>
+  </div>
+
+  <!-- Frameworks & Libraries -->
+  <div class="skill-category">
+    <h3>Frameworks & Libraries</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+      <div class="skill-item"><i class="devicon-express-original colored"></i><span>Express.js</span></div>
+      <div class="skill-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
+      <div class="skill-item"><i class="devicon-django-plain colored"></i><span>Django</span></div>
+      <div class="skill-item"><i class="devicon-flask-original colored"></i><span>Flask</span></div>
+      <div class="skill-item"><i class="devicon-python-plain colored"></i><span>FastAPI</span></div> <!-- FastAPI using Python icon -->
+    </div>
+  </div>
+
+  <!-- Databases & Cloud -->
+  <div class="skill-category">
+    <h3>Databases & Cloud</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+      <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+      <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+      <div class="skill-item"><i class="devicon-amazonwebservices-plain colored"></i><span>AWS</span></div>
+      <div class="skill-item"><i class="devicon-redis-plain colored"></i><span>Redis</span></div>
+    </div>
+  </div>
+
+  <!-- Tools & Platforms -->
+  <div class="skill-category">
+    <h3>Tools & Platforms</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+      <div class="skill-item"><i class="devicon-github-plain colored"></i><span>GitHub</span></div>
+      <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+      <div class="skill-item"><i class="devicon-kubernetes-plain colored"></i><span>Kubernetes</span></div>
+<div class="skill-item">
+  <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" style="width:50px;" />
+  <span>Postman</span>
+</div>
+      <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
+      <div class="skill-item"><i class="devicon-pycharm-plain colored"></i><span>PyCharm</span></div>
+      <div class="skill-item"><i class="devicon-jira-plain colored"></i><span>Jira</span></div>
+    </div>
+  </div>
+
+  <!-- Development Practices -->
+  <div class="skill-category">
+    <h3>Development Practices</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="fas fa-network-wired"></i><span>RESTful APIs</span></div>
+      <div class="skill-item"><i class="fas fa-server"></i><span>HTTP Lifecycle</span></div>
+      <div class="skill-item"><i class="fas fa-lock"></i><span>Auth & Authorization</span></div>
+      <div class="skill-item"><i class="fas fa-bug"></i><span>Debugging</span></div>
+      <div class="skill-item"><i class="fas fa-vial"></i><span>Unit & Integration Testing</span></div>
+      <div class="skill-item"><i class="fas fa-code-branch"></i><span>Code Reviews</span></div>
+      <div class="skill-item"><i class="fas fa-cogs"></i><span>CI/CD</span></div>
+      <div class="skill-item"><i class="fas fa-project-diagram"></i><span>Microservices</span></div>
+    </div>
+  </div>
+
+  <!-- Soft Skills -->
+  <div class="skill-category">
+    <h3>Soft Skills</h3>
+    <div class="skill-icons">
+      <div class="skill-item"><i class="fas fa-lightbulb"></i><span>Problem-Solving</span></div>
+      <div class="skill-item"><i class="fas fa-comments"></i><span>Communication</span></div>
+      <div class="skill-item"><i class="fas fa-users"></i><span>Teamwork</span></div>
+      <div class="skill-item"><i class="fas fa-handshake"></i><span>Ownership</span></div>
+      <div class="skill-item"><i class="fas fa-bolt"></i><span>Adaptability</span></div>
+      <div class="skill-item"><i class="fas fa-brain"></i><span>Rapid Learning</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  .skill-category { margin-bottom: 50px; }
+  .skill-category h3 { font-size: 1.5rem; margin-bottom: 25px; text-align:center; }
+  .skill-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    cursor: default;
+  }
+  .skill-item i {
+    font-size: 50px;
+    transition: transform 0.3s, color 0.3s;
+    color: #333;
+  }
+  .skill-item i:hover {
+    transform: scale(1.3);
+    color: #1e90ff;
+  }
+  .skill-item span {
+    margin-top: 8px;
+    text-align:center;
+  }
+  @media(max-width:768px){
+    .skill-item i { font-size: 40px; }
+    .skill-icons { gap: 20px; }
+  }
+</style>
+
+<!-- Devicons & FontAwesome CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><section id="certifications" style="padding:50px 20px; background:#f9f9f9; text-align:center;">
+  <h2 style="margin-bottom:40px;">Certifications & Courses</h2>
+
+  <div class="cert-grid">
+
+    <!-- University of Colorado -->
+    <div class="cert-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/University_of_Colorado_logo.png" alt="University of Colorado" />
+      <h4>Computer Communications Specialization</h4>
+      <p>University of Colorado System</p>
+      <p class="categories">Networking, Network Security, Network Architecture</p>
+      <p class="date">Completed: November 2024</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <!-- Princeton University -->
+    <div class="cert-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Princeton_University_shield.svg" alt="Princeton University" />
+      <h4>Computer Architecture</h4>
+      <p>Princeton University</p>
+      <p class="categories">Computer Programming, Networking Hardware, Systems Design</p>
+      <p class="date">Completed: November 2024</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <!-- Google -->
+    <div class="cert-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
+      <h4>The Bits and Bytes of Computer Networking</h4>
+      <p>Google</p>
+      <p class="categories">Networking Hardware, Network Security, Cloud Computing</p>
+      <p class="date">Completed: September 2024</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <!-- IBM -->
+    <div class="cert-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" />
+      <h4>Introduction to Hardware and Operating Systems</h4>
+      <p>IBM</p>
+      <p class="categories">Operating Systems, IBM Cloud, Cloud Management</p>
+      <p class="date">Completed: September 2024</p>
+      <a href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <!-- Add more cards as needed -->
+
+  </div>
+</section>
+
+<style>
+.cert-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.cert-card {
+  background: #fff;
+  padding: 20px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.cert-card img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.cert-card h4 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.cert-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.cert-card .categories {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.cert-card .date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.cert-card a {
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: 600;
+}
+
+.cert-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cert-card {
+    width: 90%;
+  }
+}
+</style>
